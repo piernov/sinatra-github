@@ -23,9 +23,10 @@ Or install it yourself as:
 ## Usage
 Register the extension in your sinatra application, then use the new "github" DSL method.
 For example:
-```
+```ruby
 require 'sinatra/base'
 require 'sinatra/github'
+
 class MyApp < Sinatra::Base
   # Matches github commit comments. 
   # Payload is available as parsed JSON, via the "payload" method. 
