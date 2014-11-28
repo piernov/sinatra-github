@@ -1,6 +1,8 @@
 # Sinatra::Github
 
-TODO: Write a gem description
+Sinatra Github webhook extension, for handling github webhook payloads.
+
+This gem has not reached a releasable state yet. Stay tuned!
 
 ## Installation
 
@@ -19,8 +21,20 @@ Or install it yourself as:
     $ gem install sinatra-github
 
 ## Usage
-
-TODO: Write usage instructions here
+Register the extension in your sinatra application, then use the new "github" DSL method.
+For example:
+```
+require 'sinatra/base'
+require 'sinatra/github'
+class MyApp < Sinatra::Base
+  # Matches github commit comments. 
+  # Payload is available as parsed JSON, via the "payload" method. 
+  # https://developer.github.com/v3/activity/events/types/#commitcommentevent
+  github :commit_comment, '/webhook'
+    puts payload['comment']['url']  
+  end
+end
+```
 
 ## Contributing
 
